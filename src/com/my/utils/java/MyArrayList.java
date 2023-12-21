@@ -1,5 +1,10 @@
 package com.my.utils.java;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+
 public class MyArrayList<E extends Object> {
     private static final int  DEFAULT_CAPACITY=10;
     private int size;
@@ -10,9 +15,7 @@ public class MyArrayList<E extends Object> {
      * Default constructor, default capacity is 10
       */
     public MyArrayList(){
-        this.capacity = DEFAULT_CAPACITY;
-        this.size = 0;
-        this.store = (E[]) new Object[this.capacity];
+        this(DEFAULT_CAPACITY);
     }
 
     /**
