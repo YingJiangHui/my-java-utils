@@ -2,6 +2,7 @@ package com.my.utils.java;
 
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MyHashMap<K,V> {
 
@@ -126,7 +127,7 @@ public class MyHashMap<K,V> {
     }
 
     public V get(K key){
-        return getNode(key).value;
+        return Objects.requireNonNull(getNode(key)).value;
     }
 
     public boolean containsKey(K key){
