@@ -31,17 +31,22 @@ public class MyHashMap<K,V> {
     //    元素个数>loadFactor*capacity时扩容
     float loadFactor;
     int size;
+
     public MyHashMap(){
         this(DEFAULT_CAPACITY);
     }
     public MyHashMap(int capacity){
-        this.capacity = capacity;
+        this(capacity,0.75F);
+    }
+    public MyHashMap(int capacity, float loadFactor){
         this.size = 0;
-        this.loadFactor = 0.75F;
+        this.capacity = capacity;
+        this.loadFactor = loadFactor;
         this.store =  (Node<K,V>[]) new Node[capacity];
     }
     private int hash(K key){
-        return key.hashCode() % this.capacity;
+        int hashCode = key.hashCode() % this.capacity;
+        return Math.abs(hashCode);
     }
     private void rehash(int newCapacity){
         this.capacity = Math.max(newCapacity,DEFAULT_CAPACITY);
