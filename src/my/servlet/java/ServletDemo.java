@@ -11,7 +11,6 @@ public class ServletDemo {
     static String getFakeWebUrl(){
         Scanner scanner = new Scanner(System.in);
         String url = scanner.nextLine();
-        System.out.println("url: " + url);
         return url;
     }
     public static void main(String[] args) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
@@ -19,8 +18,13 @@ public class ServletDemo {
         while (true){
             System.out.println("输入想要请求的资源");
             String url = getFakeWebUrl();
-            Servlet servlet = servletSetup.getServlet(url);
-            servlet.service();
+            try{
+                Servlet servlet = servletSetup.getServlet(url);
+                servlet.service();
+            }catch (RuntimeException e){
+                System.out.println(e.getMessage());
+            }
+
         }
 
     }
