@@ -1,10 +1,5 @@
 package com.my.utils.java;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-
 public class MyArrayList<E extends Object> {
     private static final int  DEFAULT_CAPACITY=10;
     private int size;
